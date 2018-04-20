@@ -1,4 +1,4 @@
-*/workspace.xml
-*.bin
-*.lock
-*/android-profile/*
+**/workspace.xml
+**.bin
+**.lock
+**/android-profile/*
