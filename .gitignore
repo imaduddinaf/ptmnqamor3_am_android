@@ -1,4 +1,5 @@
 **/workspace.xml
 **.bin
 **.lock
-**/android-profile/*
+**/android-profile
+**/kotlin/sessions

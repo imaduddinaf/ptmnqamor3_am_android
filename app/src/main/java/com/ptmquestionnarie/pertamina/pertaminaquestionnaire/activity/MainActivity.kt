@@ -24,12 +24,8 @@ class MainActivity : AppCompatActivity() {
                 message.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+            R.id.navigation_settings -> {
+                message.setText(R.string.title_settings)
                 return@OnNavigationItemSelectedListener true
             }
         }
