@@ -5,7 +5,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.R
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.network.APIManager
-import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.network.service.LocationService
+import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.network.service.LocationsService
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.utils.PLogger
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun request() {
-        disposable = APIManager.getService<LocationService>()
-                .getLocations(0)
+        disposable = APIManager.getService<LocationsService>()
+                .getLocations()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

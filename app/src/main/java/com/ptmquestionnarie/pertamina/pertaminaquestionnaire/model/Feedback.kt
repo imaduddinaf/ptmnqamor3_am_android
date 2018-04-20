@@ -9,11 +9,11 @@ import com.google.gson.annotations.SerializedName
 
 open class Feedback: BaseModel() {
 
-    @SerializedName("user")
+    @SerializedName("is_like")
     @Expose
-    var user: User? = null
+    var isLike: Boolean = false
 
-    @SerializedName("location")
+    @SerializedName("location_id")
     @Expose
-    var location: PLocation = PLocation()
+    var locationID: Long = 0
 }
