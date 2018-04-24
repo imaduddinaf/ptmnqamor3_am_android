@@ -2,12 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ptmquestionnarie.pertamina.pertaminaquestionnaire.fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:text="Pilih lokasi terlebih dahulu"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <Spinner
+        android:id="@+id/dropdownLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin">
+        
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_button_height" />
+    
+    <Button
+        android:id="@+id/buttonQuestionnaire"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_button_height"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:background="@color/red"
+        android:text="Buka Kuesioner"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

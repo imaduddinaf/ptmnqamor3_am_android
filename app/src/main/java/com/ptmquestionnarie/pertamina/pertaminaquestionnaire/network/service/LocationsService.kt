@@ -20,7 +20,7 @@ interface LocationsService {
     fun getLocations(): Observable<BaseResponse<Array<PLocation>>>
 
     @GET("locations")
-    fun getLocations(@Field("parent_id") parentID: Long): Observable<BaseResponse<Array<Location>>>
+    fun getLocations(@Field("parent_id") parentID: Long): Observable<BaseResponse<Array<PLocation>>>
 
     @GET("locations/{id}")
     fun getLocation(@Path("id") id: Long): Observable<BaseResponse<Array<PLocation>>>

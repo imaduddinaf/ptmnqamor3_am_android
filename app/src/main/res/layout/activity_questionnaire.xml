@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.ptmquestionnarie.pertamina.pertaminaquestionnaire.activity.QuestionnaireActivity">
+
+    <ImageView
+        android:id="@+id/imagePertamina"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/pertamina_logo"/>
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/buttonsContainer"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:text="Apakah anda puas dengan fasilitas ini?"/>
+
+    <RelativeLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/imageSmile"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/separator"
+            android:layout_marginRight="80sp"
+            android:background="@drawable/smile_emoticon"/>
+
+        <TextView
+            android:id="@+id/separator"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/imageSad"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/separator"
+            android:layout_marginLeft="80sp"
+            android:background="@drawable/sad_emoticon"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

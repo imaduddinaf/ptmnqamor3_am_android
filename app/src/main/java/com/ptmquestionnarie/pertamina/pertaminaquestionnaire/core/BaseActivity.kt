@@ -13,7 +13,7 @@ open abstract class BaseActivity : AppCompatActivity() {
 
     private var customTitle: String = Constant.TITLE
 
-    fun getCustomTitle(): String {
+    open fun getCustomTitle(): String {
         return customTitle
     }
 
@@ -26,6 +26,10 @@ open abstract class BaseActivity : AppCompatActivity() {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
             supportActionBar!!.setHomeButtonEnabled(true)
         }
+
+        if (shouldHideBar()) {
+            supportActionBar!!.hide()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -36,5 +40,9 @@ open abstract class BaseActivity : AppCompatActivity() {
 
     open fun shouldShowBackButton(): Boolean {
         return true
+    }
+
+    open fun shouldHideBar(): Boolean {
+        return false
     }
 }
