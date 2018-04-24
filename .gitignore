@@ -3,3 +3,4 @@
 **.lock
 **/android-profile
 **/kotlin/sessions
+**/libraries

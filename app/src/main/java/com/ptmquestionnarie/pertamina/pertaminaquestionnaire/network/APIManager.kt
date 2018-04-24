@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object APIManager {
 
-    val baseURL: String = "http://10.0.2.2:5000/api/"
+    val baseURL: String = "http://10.0.2.2:5000/api/" // localhost:5000
 
     private var retrofit: Retrofit? = null
     val service: Retrofit

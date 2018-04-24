@@ -1,9 +1,14 @@
 package com.ptmquestionnarie.pertamina.pertaminaquestionnaire.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.FragmentManager
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.R
+import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.core.BaseActivity
+import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.core.BaseFragment
+import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.fragment.HomeFragment
+import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.fragment.SettingsFragment
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.network.APIManager
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.network.service.LocationsService
 import com.ptmquestionnarie.pertamina.pertaminaquestionnaire.utils.PLogger
@@ -12,31 +17,50 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : BaseActivity() {
 
     var disposable: Disposable? = null
+
+    private var fragment: BaseFragment? = null
+    private var fragmentManager: FragmentManager? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         request()
 
         when (item.itemId) {
             R.id.navigation_home -> {
-                message.setText(R.string.title_home)
-                return@OnNavigationItemSelectedListener true
+//                if (fragment.getClass() === HomeFragment_::class.java) return true
+
+                PLogger.show("home tab")
+                fragment = HomeFragment()
             }
             R.id.navigation_settings -> {
-                message.setText(R.string.title_settings)
-                return@OnNavigationItemSelectedListener true
+//                if (fragment.getClass() === ProfileFragment_::class.java) return true
+
+                PLogger.show("settings tab")
+                fragment = SettingsFragment()
             }
         }
-        false
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.content, fragment)?.commit()
+
+        true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fragment = HomeFragment()
+        fragmentManager = supportFragmentManager
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.content, fragment)?.commit()
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    override fun shouldShowBackButton(): Boolean {
+        return false
     }
 
     private fun request() {
